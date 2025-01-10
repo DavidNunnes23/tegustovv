@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Fiesta!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #ffeb3b;
+      overflow: hidden;
+    }
+    h1 {
+      color: #d32f2f;
+      animation: zoom 1s infinite alternate;
+    }
+    img {
+      max-width: 300px;
+      margin: 20px 0;
+    }
+    @keyframes confeti {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(100vh); }
+    }
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.2); }
+    }
+    .confeti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      animation: confeti 3s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <h1>¡YA LO SABIA VV! 🎉</h1>
+  <img src="fiesta.jpg" alt="Tu imagen de fiesta">
+  
+  <script>
+    function crearConfeti() {
+      for (let i = 0; i < 100; i++) {
+        const confeti = document.createElement("div");
+        confeti.classList.add("confeti");
+        confeti.style.left = Math.random() * window.innerWidth + "px";
+        confeti.style.animationDelay = Math.random() * 3 + "s";
+        confeti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confeti.style.width = confeti.style.height = Math.random() * 10 + 5 + "px";
+        document.body.appendChild(confeti);
+      }
+    }
+
+    crearConfeti();
+  </script>
+</body>
+</html>
